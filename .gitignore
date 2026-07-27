@@ -22,3 +22,5 @@ out/
 
 # system files
 Thumbs.db
+.vercel
+.env*
