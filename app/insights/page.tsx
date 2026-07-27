@@ -53,7 +53,10 @@ export default function InsightsPage() {
           poster={IMAGES.insightsHero}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         >
-          <source src="/vedios/deepsea.mp4" type="video/mp4" />
+          <source
+            src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162445/deepsea_yqssgl.mp4"
+            type="video/mp4"
+          />
           {/* Fallback image if video fails */}
           <Image
             src={IMAGES.insightsHero}
