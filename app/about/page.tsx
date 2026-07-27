@@ -39,7 +39,10 @@ export default function AboutPage() {
               className="h-full w-full object-cover"
               poster={IMAGES.aboutHero}
             >
-              <source src="/vedios/divers.mp4" type="video/mp4" />
+              <source
+                src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162399/divers_url8wp.mp4"
+                type="video/mp4"
+              />
               {/* Fallback if video fails */}
               <Image
                 src={IMAGES.aboutHero}
