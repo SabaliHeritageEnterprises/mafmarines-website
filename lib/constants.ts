@@ -50,13 +50,13 @@ export const OFFICES = [
     city: "Mombasa",
     country: "Kenya",
     address: "Shed 12, Kilindini Port, Mombasa, Kenya",
-    coords: [-4.0435, 39.6682], // 👈 Leaflet requires [latitude, longitude]
+    coords: [-4.0435, 39.6682],
   },
   {
     city: "Dar es Salaam",
     country: "Tanzania",
     address: "Berth 8, Dar es Salaam Port, Tanzania",
-    coords: [-6.7924, 39.2083], // 👈 Leaflet requires [latitude, longitude]
+    coords: [-6.7924, 39.2083],
   },
 ];
 
@@ -308,7 +308,7 @@ export const FLEET = [
     length: "400m",
     built: "2021",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400&h=300&fit=crop",
-    video: "/vedios/welding (1).mp4",
+    video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162425/welding_1_agqn86.mp4",
   },
   {
     name: "M/Y Aura",
@@ -316,7 +316,7 @@ export const FLEET = [
     length: "85m",
     built: "2019",
     image: "https://images.unsplash.com/photo-1566024287286-457247b70310?q=80&w=400&h=300&fit=crop",
-    video: "/vedios/welding (2).mp4",
+    video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162431/welding_3_j5jthk.mp4",
   },
   {
     name: "OSV Mafmarines Pioneer",
@@ -324,7 +324,7 @@ export const FLEET = [
     length: "92m",
     built: "2022",
     image: "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=400&h=300&fit=crop",
-    video: "/vedios/welding (3).mp4",
+    video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162431/welding_3_j5jthk.mp4",
   },
   {
     name: "M/V Mafmarines Horizon",
@@ -332,7 +332,7 @@ export const FLEET = [
     length: "225m",
     built: "2018",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400&h=300&fit=crop&sat=-100",
-    video: "/vedios/welding (4).mp4",
+    video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162431/welding_3_j5jthk.mp4",
   },
   {
     name: "M/V Mafmarines Atlas",
