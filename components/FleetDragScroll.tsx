@@ -85,7 +85,6 @@ export default function FleetDragScroll() {
         className="drag-scroll flex gap-6 overflow-x-auto pb-6 cursor-grab active:cursor-grabbing select-none"
       >
         {fleetData.map((vessel) => {
-          // Properly check if vessel has a video (and it's a string)
           const hasVideo = vessel && 'video' in vessel && typeof vessel.video === 'string';
 
           return (
@@ -94,24 +93,16 @@ export default function FleetDragScroll() {
               onClick={() => setActiveVessel(vessel)}
               className="group relative h-[380px] w-[320px] shrink-0 overflow-hidden rounded-2xl border border-white/10 text-left"
             >
-              {/* Background: video or image */}
+              {/* Background: video (no poster, no fallback image) or static image */}
               {hasVideo ? (
                 <video
                   autoPlay
                   muted
                   loop
                   playsInline
-                  poster={vessel.image}
                   className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                 >
                   <source src={vessel.video as string} type="video/mp4" />
-                  {/* Fallback image if video fails */}
-                  <Image
-                    src={vessel.image}
-                    alt={vessel.name}
-                    fill
-                    className="object-cover"
-                  />
                 </video>
               ) : (
                 <Image
