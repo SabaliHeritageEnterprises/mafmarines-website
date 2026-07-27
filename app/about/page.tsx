@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Timeline from "@/components/Timeline";
 import Counter from "@/components/Counter";
 import { IMAGES } from "@/lib/constants";
@@ -29,7 +28,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Video replacing the static image */}
+          {/* Video — no static image */}
           <div className="relative h-[480px] rounded-2xl overflow-hidden border border-white/10">
             <video
               autoPlay
@@ -37,18 +36,10 @@ export default function AboutPage() {
               loop
               playsInline
               className="h-full w-full object-cover"
-              poster={IMAGES.aboutHero}
             >
               <source
                 src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162399/divers_url8wp.mp4"
                 type="video/mp4"
-              />
-              {/* Fallback if video fails */}
-              <Image
-                src={IMAGES.aboutHero}
-                alt="Maritime engineering and diving operations"
-                fill
-                className="object-cover"
               />
             </video>
             <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 to-transparent" />
