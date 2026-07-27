@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { IMAGES } from "@/lib/constants";
 
 export const metadata = {
@@ -43,27 +42,18 @@ const ARTICLES = [
 export default function InsightsPage() {
   return (
     <div>
-      {/* HERO — with deepsea video background */}
+      {/* HERO — with deepsea video background (no static image) */}
       <section className="relative flex h-[45vh] items-center overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster={IMAGES.insightsHero}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         >
           <source
             src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162445/deepsea_yqssgl.mp4"
             type="video/mp4"
-          />
-          {/* Fallback image if video fails */}
-          <Image
-            src={IMAGES.insightsHero}
-            alt="Open ocean and deep sea"
-            fill
-            priority
-            className="object-cover"
           />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/50 to-navy-950/30" />
