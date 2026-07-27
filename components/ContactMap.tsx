@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Office coordinates (latitude, longitude)
-const OFFICES = [
+// Office coordinates – explicitly typed as tuple [number, number]
+const OFFICES: { city: string; country: string; address: string; coords: [number, number] }[] = [
   {
     city: "Mombasa",
     country: "Kenya",
@@ -20,7 +20,7 @@ const OFFICES = [
   },
 ];
 
-// Create a custom icon with the correct URLs (avoids private property errors)
+// Create a custom icon with the correct URLs
 const customIcon = new L.Icon({
   iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
   iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
@@ -42,7 +42,7 @@ export default function ContactMap() {
 
   useEffect(() => {
     if (!isClient || !containerRef.current) return;
-    if (mapRef.current) return; // already initialised
+    if (mapRef.current) return;
 
     const map = L.map(containerRef.current, {
       center: [-5.0, 39.5],

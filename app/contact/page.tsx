@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import ContactMap from "@/components/ContactMap";
+import dynamic from "next/dynamic";
+
+// Dynamically import ContactMap with SSR disabled
+const ContactMap = dynamic(() => import("@/components/ContactMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-[400px] w-full rounded-2xl border border-white/10 bg-navy-800/40 animate-pulse" />
+  ),
+});
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -131,7 +139,7 @@ export default function ContactPage() {
             )}
           </div>
 
-          {/* MAP */}
+          {/* MAP – dynamically loaded on client */}
           <div>
             <ContactMap />
             <p className="mt-4 font-body text-xs text-pearl-dim">

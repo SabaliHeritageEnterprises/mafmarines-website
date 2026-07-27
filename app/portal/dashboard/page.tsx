@@ -24,13 +24,13 @@ import Link from "next/link";
 import StatsCard from "@/components/portal/StatsCard";
 import RecentActivity from "@/components/portal/RecentActivity";
 
-// Enhanced stats with more detail
+// Enhanced stats with more detail – added `as const` to fix TypeScript error
 const stats = [
   { label: "Active Vessels", value: "12", icon: Ship, change: "+2", color: "teal" },
   { label: "Fleet Utilization", value: "94%", icon: Activity, change: "+8%", color: "green" },
   { label: "Open Invoices", value: "4", icon: FileText, change: "Pending", color: "gold" },
   { label: "Active Requests", value: "3", icon: ClipboardList, change: "In progress", color: "blue" },
-];
+] as const; // 👈 This fixes the TypeScript error
 
 // Enhanced vessel data
 const vessels = [
