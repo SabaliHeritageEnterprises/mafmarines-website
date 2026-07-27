@@ -1,4 +1,3 @@
-import Image from "next/image";
 import SplitHeadline from "@/components/SplitHeadline";
 import TiltCard from "@/components/TiltCard";
 import Counter from "@/components/Counter";
@@ -7,27 +6,18 @@ import { IMAGES, SERVICES, COMPANY } from "@/lib/constants";
 export default function HomePage() {
   return (
     <>
-      {/* HERO — with Cloudinary video background */}
+      {/* HERO — with Cloudinary video background (no image fallback) */}
       <section className="relative flex min-h-screen items-center overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          poster={IMAGES.homeHero}
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         >
           <source
             src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162431/underwater_vsf5cf.mp4"
             type="video/mp4"
-          />
-          {/* Fallback if video fails to load */}
-          <Image
-            src={IMAGES.homeHero}
-            alt="Maritime engineering and subsea operations"
-            fill
-            priority
-            className="object-cover"
           />
         </video>
 
