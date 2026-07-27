@@ -1,6 +1,5 @@
-import Image from "next/image";
 import TiltCard from "@/components/TiltCard";
-import { IMAGES, SERVICES } from "@/lib/constants";
+import { SERVICES } from "@/lib/constants";
 
 export const metadata = {
   title: "Our Services | Mafmarines Solutions",
@@ -11,7 +10,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <div>
-      {/* HERO — with video background */}
+      {/* HERO — with video background (no static image) */}
       <section className="relative flex h-[60vh] items-center overflow-hidden">
         <video
           autoPlay
@@ -19,16 +18,10 @@ export default function ServicesPage() {
           loop
           playsInline
           className="absolute inset-0 h-full w-full object-cover opacity-30"
-          poster={IMAGES.servicesHero}
         >
-          <source src="/vedios/survey.mp4" type="video/mp4" />
-          {/* Fallback if video fails */}
-          <Image
-            src={IMAGES.servicesHero}
-            alt="Maritime survey and inspection services"
-            fill
-            priority
-            className="object-cover"
+          <source
+            src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162436/survey_eorj4z.mp4"
+            type="video/mp4"
           />
         </video>
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/50 to-navy-950/30" />
