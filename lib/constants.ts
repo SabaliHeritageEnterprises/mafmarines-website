@@ -308,7 +308,6 @@ export const FLEET = [
     length: "400m",
     built: "2021",
     image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.51_nxvrxy.jpg",
-    // video removed – static image only
   },
   {
     name: "M/Y Aura",
@@ -337,6 +336,6 @@ export const FLEET = [
     type: "Heavy‑Lift Vessel",
     length: "180m",
     built: "2023",
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&h=300&fit=crop",
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.50_qx1pjj.jpg",
   },
 ];
