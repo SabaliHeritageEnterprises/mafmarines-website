@@ -308,7 +308,7 @@ export const FLEET = [
     length: "400m",
     built: "2021",
     image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.51_nxvrxy.jpg",
-    video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162425/welding_1_agqn86.mp4",
+    // video removed – static image only
   },
   {
     name: "M/Y Aura",
