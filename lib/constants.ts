@@ -307,7 +307,7 @@ export const FLEET = [
     type: "Ultra-Large Container Vessel",
     length: "400m",
     built: "2021",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400&h=300&fit=crop",
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.51_nxvrxy.jpg",
     video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162425/welding_1_agqn86.mp4",
   },
   {
@@ -315,23 +315,21 @@ export const FLEET = [
     type: "Superyacht Support",
     length: "85m",
     built: "2019",
-    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785303424/pexels-christian-vergara-19046939-11634173_g2sx2a.jpg",
-    // video removed – static image only
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.52_m2kdn7.jpg",
   },
   {
     name: "OSV Mafmarines Pioneer",
     type: "Offshore Supply Vessel",
     length: "92m",
     built: "2022",
-    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785303422/pexels-toulouse-3098971_vdl4hl.jpg",
-    // video removed – static image only
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.45_vuyf1w.jpg",
   },
   {
     name: "M/V Mafmarines Horizon",
     type: "Bulk Carrier",
     length: "225m",
     built: "2018",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=400&h=300&fit=crop&sat=-100",
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785589345/WhatsApp_Image_2026-08-01_at_04.45.50_qx1pjj.jpg",
     video: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162431/welding_3_j5jthk.mp4",
   },
   {
