@@ -16,7 +16,7 @@ export default function HomePage() {
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         >
           <source
-            src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785852632/WhatsApp_Video_2026-08-03_at_07.14.55_sblmcj.mp4"
+            src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785852632/WhatsApp_Video_2026-08-03_at_07.13.23_pq0pow.mp4"
             type="video/mp4"
           />
         </video>
