@@ -38,7 +38,7 @@ export default function AboutPage() {
               className="h-full w-full object-cover"
             >
               <source
-                src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785162399/divers_url8wp.mp4"
+                src="https://res.cloudinary.com/tgvfx3bf/video/upload/v1785852631/WhatsApp_Video_2026-08-03_at_07.12.39_etnl4r.mp4"
                 type="video/mp4"
               />
             </video>
