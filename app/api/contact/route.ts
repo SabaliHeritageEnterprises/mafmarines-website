@@ -5,6 +5,7 @@ export async function POST(request: Request) {
   try {
     const { name, email, inquiry, message } = await request.json();
 
+    // Validate required fields
     if (!name || !email || !inquiry || !message) {
       return NextResponse.json(
         { error: "All fields are required." },
@@ -12,23 +13,37 @@ export async function POST(request: Request) {
       );
     }
 
-    // Create a transporter using your SMTP settings
+    // Check environment variables
+    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
+      console.error("❌ Missing SMTP environment variables");
+      return NextResponse.json(
+        { error: "Server configuration error. Please try again later." },
+        { status: 500 }
+      );
+    }
+
+    // Determine secure based on port (465 = SSL, 587 = TLS)
+    const port = Number(SMTP_PORT);
+    const secure = port === 465;
+
+    // Create transporter
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true, // true for port 465 (SSL)
+      host: SMTP_HOST,
+      port,
+      secure,
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
+        user: SMTP_USER,
+        pass: SMTP_PASSWORD,
       },
       tls: {
-        rejectUnauthorized: false, // Required for some self-signed certificates
+        rejectUnauthorized: false, // may be needed for self-signed certs
       },
     });
 
     // Email content
     const mailOptions = {
-      from: `"Mafmarines Contact Form" <${process.env.SMTP_USER}>`,
+      from: `"Mafmarines Contact Form" <${SMTP_USER}>`,
       to: "info@mafmarinesolution.com",
       replyTo: email,
       subject: `New Contact Request from ${name}`,
@@ -56,10 +71,19 @@ export async function POST(request: Request) {
       { success: true, message: "Email sent successfully!" },
       { status: 200 }
     );
-  } catch (error) {
-    console.error("Email send error:", error);
+  } catch (error: any) {
+    console.error("❌ Email send error:", error);
+
+    // Return a more specific error message if available
+    const errorMessage =
+      error.code === "EAUTH"
+        ? "Authentication failed. Please check your email credentials."
+        : error.code === "ECONNECTION"
+        ? "Could not connect to the mail server. Please try again later."
+        : "Failed to send email. Please try again later.";
+
     return NextResponse.json(
-      { error: "Failed to send email. Please try again later." },
+      { error: errorMessage },
       { status: 500 }
     );
   }
