@@ -5,7 +5,6 @@ export async function POST(request: Request) {
   try {
     const { name, email, inquiry, message } = await request.json();
 
-    // Validate required fields
     if (!name || !email || !inquiry || !message) {
       return NextResponse.json(
         { error: "All fields are required." },
@@ -13,21 +12,20 @@ export async function POST(request: Request) {
       );
     }
 
-    // Check environment variables
     const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
     if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
       console.error("❌ Missing SMTP environment variables");
       return NextResponse.json(
-        { error: "Server configuration error. Please try again later." },
+        { error: "Server configuration error." },
         { status: 500 }
       );
     }
 
-    // Determine secure based on port (465 = SSL, 587 = TLS)
     const port = Number(SMTP_PORT);
     const secure = port === 465;
 
-    // Create transporter
+    console.log("📧 SMTP Config:", { host: SMTP_HOST, port, secure, user: SMTP_USER });
+
     const transporter = nodemailer.createTransport({
       host: SMTP_HOST,
       port,
@@ -36,23 +34,17 @@ export async function POST(request: Request) {
         user: SMTP_USER,
         pass: SMTP_PASSWORD,
       },
-      tls: {
-        rejectUnauthorized: false, // may be needed for self-signed certs
-      },
+      tls: { rejectUnauthorized: false },
+      debug: true,
+      logger: true,
     });
 
-    // Email content
     const mailOptions = {
       from: `"Mafmarines Contact Form" <${SMTP_USER}>`,
       to: "info@mafmarinesolution.com",
       replyTo: email,
       subject: `New Contact Request from ${name}`,
-      text: `
-        Name: ${name}
-        Email: ${email}
-        Inquiry Type: ${inquiry}
-        Message: ${message}
-      `,
+      text: `Name: ${name}\nEmail: ${email}\nInquiry Type: ${inquiry}\nMessage: ${message}`,
       html: `
         <h3>New Contact Request</h3>
         <p><strong>Name:</strong> ${name}</p>
@@ -61,29 +53,16 @@ export async function POST(request: Request) {
         <p><strong>Message:</strong></p>
         <p style="white-space: pre-wrap;">${message}</p>
         <hr>
-        <p style="color: #888; font-size: 12px;">This message was sent from the Mafmarines Solutions website contact form.</p>
+        <p style="color: #888; font-size: 12px;">Sent from Mafmarines Solutions website.</p>
       `,
     };
 
     await transporter.sendMail(mailOptions);
-
-    return NextResponse.json(
-      { success: true, message: "Email sent successfully!" },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
   } catch (error: any) {
     console.error("❌ Email send error:", error);
-
-    // Return a more specific error message if available
-    const errorMessage =
-      error.code === "EAUTH"
-        ? "Authentication failed. Please check your email credentials."
-        : error.code === "ECONNECTION"
-        ? "Could not connect to the mail server. Please try again later."
-        : "Failed to send email. Please try again later.";
-
     return NextResponse.json(
-      { error: errorMessage },
+      { error: `Failed to send email: ${error.message} (Code: ${error.code})` },
       { status: 500 }
     );
   }
