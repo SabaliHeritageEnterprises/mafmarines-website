@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import { Send, Loader2 } from "lucide-react";
 
 // Dynamically import ContactMap with SSR disabled
 const ContactMap = dynamic(() => import("@/components/ContactMap"), {
@@ -12,9 +13,7 @@ const ContactMap = dynamic(() => import("@/components/ContactMap"), {
 });
 
 export default function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,30 +27,28 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError("");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    // Build WhatsApp message
+    const { name, email, inquiry, message } = formData;
+    const whatsappMessage = `
+      *New Contact Request*
 
-      const data = await response.json();
+      *Name:* ${name}
+      *Email:* ${email}
+      *Inquiry Type:* ${inquiry}
+      *Message:*
+      ${message}
+    `;
 
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
-      }
+    const phoneNumber = "254740089014";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-      setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
+    // Open WhatsApp in a new tab
+    window.open(whatsappUrl, "_blank");
+    setLoading(false);
   };
 
   return (
@@ -65,78 +62,74 @@ export default function ContactPage() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* FORM */}
           <div className="rounded-2xl border border-white/10 bg-navy-800/40 p-8">
-            {submitted ? (
-              <div className="flex h-full flex-col items-center justify-center py-16 text-center">
-                <p className="font-display text-2xl text-gold">Request received</p>
-                <p className="mt-2 font-body text-sm text-pearl-dim max-w-xs">
-                  We'll get back to you within one business day.
-                </p>
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label className="font-body text-xs tracking-widest2 text-pearl-dim">NAME</label>
+                <input
+                  required
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {error && (
-                  <div className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                    {error}
-                  </div>
-                )}
-                <div>
-                  <label className="font-body text-xs tracking-widest2 text-pearl-dim">NAME</label>
-                  <input
-                    required
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
-                  />
-                </div>
-                <div>
-                  <label className="font-body text-xs tracking-widest2 text-pearl-dim">EMAIL</label>
-                  <input
-                    required
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
-                  />
-                </div>
-                <div>
-                  <label className="font-body text-xs tracking-widest2 text-pearl-dim">INQUIRY TYPE</label>
-                  <select
-                    name="inquiry"
-                    value={formData.inquiry}
-                    onChange={handleChange}
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
-                  >
-                    <option>Vessel Inspection & Surveying</option>
-                    <option>Commercial Diving Operations</option>
-                    <option>Subsea Engineering & Construction</option>
-                    <option>Salvage & Emergency Response</option>
-                    <option>Specialized Marine Services</option>
-                    <option>General Inquiry</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="font-body text-xs tracking-widest2 text-pearl-dim">MESSAGE</label>
-                  <textarea
-                    required
-                    rows={4}
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full rounded-full bg-gold py-3 font-body text-xs tracking-widest2 text-navy-950 hover:bg-gold-bright transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              <div>
+                <label className="font-body text-xs tracking-widest2 text-pearl-dim">EMAIL</label>
+                <input
+                  required
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
+                />
+              </div>
+              <div>
+                <label className="font-body text-xs tracking-widest2 text-pearl-dim">INQUIRY TYPE</label>
+                <select
+                  name="inquiry"
+                  value={formData.inquiry}
+                  onChange={handleChange}
+                  className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
                 >
-                  {loading ? "Sending..." : "Send Message"}
-                </button>
-              </form>
-            )}
+                  <option>Vessel Inspection & Surveying</option>
+                  <option>Commercial Diving Operations</option>
+                  <option>Subsea Engineering & Construction</option>
+                  <option>Salvage & Emergency Response</option>
+                  <option>Specialized Marine Services</option>
+                  <option>General Inquiry</option>
+                </select>
+              </div>
+              <div>
+                <label className="font-body text-xs tracking-widest2 text-pearl-dim">MESSAGE</label>
+                <textarea
+                  required
+                  rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="mt-2 w-full rounded-lg border border-white/10 bg-navy-900 px-4 py-3 font-body text-sm text-pearl outline-none focus:border-gold/60"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full rounded-full bg-[#25D366] py-3 font-body text-xs tracking-widest2 text-white hover:bg-[#1da851] transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Opening WhatsApp...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4" />
+                    Send Message via WhatsApp
+                  </>
+                )}
+              </button>
+            </form>
           </div>
 
           {/* MAP – dynamically loaded on client */}
