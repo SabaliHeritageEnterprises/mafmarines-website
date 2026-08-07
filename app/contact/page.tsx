@@ -4,7 +4,6 @@ import { useState } from "react";
 import dynamic from "next/dynamic";
 import { Send, Loader2 } from "lucide-react";
 
-// Dynamically import ContactMap with SSR disabled
 const ContactMap = dynamic(() => import("@/components/ContactMap"), {
   ssr: false,
   loading: () => (
@@ -31,7 +30,6 @@ export default function ContactPage() {
     e.preventDefault();
     setLoading(true);
 
-    // Build WhatsApp message
     const { name, email, inquiry, message } = formData;
     const whatsappMessage = `
       *New Contact Request*
@@ -46,7 +44,6 @@ export default function ContactPage() {
     const phoneNumber = "254740089014";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-    // Open WhatsApp in a new tab
     window.open(whatsappUrl, "_blank");
     setLoading(false);
   };
@@ -60,7 +57,6 @@ export default function ContactPage() {
         </h1>
 
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* FORM */}
           <div className="rounded-2xl border border-white/10 bg-navy-800/40 p-8">
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
@@ -132,7 +128,6 @@ export default function ContactPage() {
             </form>
           </div>
 
-          {/* MAP – dynamically loaded on client */}
           <div>
             <ContactMap />
             <p className="mt-4 font-body text-xs text-pearl-dim">
