@@ -43,7 +43,7 @@ export default function ContactPage() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
+        throw new Error(data.error || "Failed to send quote");
       }
 
       setSubmitted(true);
@@ -140,7 +140,7 @@ export default function ContactPage() {
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Send Quote Request
+                      Send Quote
                     </>
                   )}
                 </button>
