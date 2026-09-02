@@ -6,63 +6,54 @@ export async function POST(request: Request) {
     const { name, email, inquiry, message } = await request.json();
 
     if (!name || !email || !inquiry || !message) {
-      return NextResponse.json(
-        { error: "All fields are required." },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "All fields are required." }, { status: 400 });
     }
 
-    const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD } = process.env;
-    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASSWORD) {
+    // Read SMTP settings from environment variables
+    const host = process.env.SMTP_HOST;
+    const port = Number(process.env.SMTP_PORT) || 465;
+    const user = process.env.SMTP_USER;
+    const pass = process.env.SMTP_PASSWORD;
+
+    if (!host || !user || !pass) {
       console.error("❌ Missing SMTP environment variables");
       return NextResponse.json(
-        { error: "Server configuration error." },
+        { error: "Server configuration error. Please try again later." },
         { status: 500 }
       );
     }
 
-    const port = Number(SMTP_PORT);
-    const secure = port === 465;
-
-    console.log("📧 SMTP Config:", { host: SMTP_HOST, port, secure, user: SMTP_USER });
-
     const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
+      host,
       port,
-      secure,
-      auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASSWORD,
-      },
+      secure: port === 465, // true for 465, false for others
+      auth: { user, pass },
       tls: { rejectUnauthorized: false },
-      debug: true,
-      logger: true,
     });
 
     const mailOptions = {
-      from: `"Mafmarines Contact Form" <${SMTP_USER}>`,
-      to: "info@mafmarinesolution.com",
+      from: `"Mafmarines Solutions" <${user}>`,
+      to: "director@mafmarinesolution.com",
       replyTo: email,
-      subject: `New Contact Request from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nInquiry Type: ${inquiry}\nMessage: ${message}`,
+      subject: `New Quote Request from ${name}`,
       html: `
-        <h3>New Contact Request</h3>
+        <h3>New Quote Request</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
         <p><strong>Inquiry Type:</strong> ${inquiry}</p>
         <p><strong>Message:</strong></p>
-        <p style="white-space: pre-wrap;">${message}</p>
+        <p>${message}</p>
         <hr>
         <p style="color: #888; font-size: 12px;">Sent from Mafmarines Solutions website.</p>
       `,
     };
 
     await transporter.sendMail(mailOptions);
-    return NextResponse.json({ success: true, message: "Email sent successfully!" }, { status: 200 });
+    return NextResponse.json({ success: true, message: "Email sent successfully!" });
   } catch (error: any) {
     console.error("❌ Email send error:", error);
     return NextResponse.json(
-      { error: `Failed to send email: ${error.message} (Code: ${error.code})` },
+      { error: error.message || "Failed to send email" },
       { status: 500 }
     );
   }
