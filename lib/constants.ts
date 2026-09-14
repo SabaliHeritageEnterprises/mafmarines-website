@@ -90,7 +90,6 @@ export const SERVICES = [
       { label: "Certified Surveyors", value: "12" },
       { label: "Average Report Time", value: "48 hrs" },
     ],
-    // 🔽 Updated gallery images
     gallery: [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
@@ -137,7 +136,6 @@ export const SERVICES = [
       { label: "Certified Divers", value: "28" },
       { label: "Max Depth", value: "300m" },
     ],
-    // 🔽 Updated gallery images
     gallery: [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
@@ -184,7 +182,6 @@ export const SERVICES = [
       { label: "Max Water Depth", value: "3,000m" },
       { label: "ROV Fleet", value: "8" },
     ],
-    // 🔽 Updated gallery images
     gallery: [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
@@ -231,7 +228,6 @@ export const SERVICES = [
       { label: "Average Response Time", value: "< 4 hours" },
       { label: "Vessels Re‑floated", value: "35" },
     ],
-    // 🔽 Updated gallery images
     gallery: [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
@@ -278,14 +274,13 @@ export const SERVICES = [
       { label: "ROV Pilots", value: "8" },
       { label: "Consultancy Projects", value: "180+" },
     ],
-    // 🔽 Updated gallery images
     gallery: [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
-    image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=600&h=400&fit=crop",
-    hero: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=1920&h=800&fit=crop",
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407904/WhatsApp_Image_2026-09-14_at_09.43.08_1_ohzslh.jpg",  // 👈 UPDATED
+    hero: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407904/WhatsApp_Image_2026-09-14_at_09.43.08_1_ohzslh.jpg",   // 👈 UPDATED
     features: [
       "Rope access maintenance and repair",
       "ROV inspections and survey support",
