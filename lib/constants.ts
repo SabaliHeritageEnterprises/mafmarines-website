@@ -279,8 +279,8 @@ export const SERVICES = [
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
       "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
-    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407904/WhatsApp_Image_2026-09-14_at_09.43.08_1_ohzslh.jpg",  // 👈 UPDATED
-    hero: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407904/WhatsApp_Image_2026-09-14_at_09.43.08_1_ohzslh.jpg",   // 👈 UPDATED
+    image: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785852624/WhatsApp_Image_2026-08-03_at_07.26.57_ck2mxc.jpg",  // 👈 UPDATED
+    hero: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785852624/WhatsApp_Image_2026-08-03_at_07.26.57_ck2mxc.jpg",   // 👈 UPDATED
     features: [
       "Rope access maintenance and repair",
       "ROV inspections and survey support",
