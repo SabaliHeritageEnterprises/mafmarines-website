@@ -90,10 +90,11 @@ export const SERVICES = [
       { label: "Certified Surveyors", value: "12" },
       { label: "Average Report Time", value: "48 hrs" },
     ],
+    // 🔽 Updated gallery images
     gallery: [
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&h=400&fit=crop&sat=20",
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&h=400&fit=crop&sat=-10",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600&h=400&fit=crop",
     hero: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1920&h=800&fit=crop",
@@ -136,10 +137,11 @@ export const SERVICES = [
       { label: "Certified Divers", value: "28" },
       { label: "Max Depth", value: "300m" },
     ],
+    // 🔽 Updated gallery images
     gallery: [
-      "https://images.unsplash.com/photo-1581094288338-f7dc0f4a0ec2?q=80&w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1581094288338-f7dc0f4a0ec2?q=80&w=600&h=400&fit=crop&sat=20",
-      "https://images.unsplash.com/photo-1581094288338-f7dc0f4a0ec2?q=80&w=600&h=400&fit=crop&sat=-10",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
     image: "https://images.unsplash.com/photo-1581094288338-f7dc0f4a0ec2?q=80&w=600&h=400&fit=crop",
     hero: "https://images.unsplash.com/photo-1581094288338-f7dc0f4a0ec2?q=80&w=1920&h=800&fit=crop",
@@ -182,10 +184,11 @@ export const SERVICES = [
       { label: "Max Water Depth", value: "3,000m" },
       { label: "ROV Fleet", value: "8" },
     ],
+    // 🔽 Updated gallery images
     gallery: [
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&h=400&fit=crop&sat=20",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&h=400&fit=crop&sat=-10",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600&h=400&fit=crop",
     hero: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1920&h=800&fit=crop",
@@ -228,10 +231,11 @@ export const SERVICES = [
       { label: "Average Response Time", value: "< 4 hours" },
       { label: "Vessels Re‑floated", value: "35" },
     ],
+    // 🔽 Updated gallery images
     gallery: [
-      "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=600&h=400&fit=crop&sat=20",
-      "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=600&h=400&fit=crop&sat=-10",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
     image: "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=600&h=400&fit=crop",
     hero: "https://images.unsplash.com/photo-1573831396264-1f5b9d6b755a?q=80&w=1920&h=800&fit=crop",
@@ -274,10 +278,11 @@ export const SERVICES = [
       { label: "ROV Pilots", value: "8" },
       { label: "Consultancy Projects", value: "180+" },
     ],
+    // 🔽 Updated gallery images
     gallery: [
-      "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=600&h=400&fit=crop",
-      "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=600&h=400&fit=crop&sat=20",
-      "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=600&h=400&fit=crop&sat=-10",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.08_yrhn64.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407905/WhatsApp_Image_2026-09-14_at_09.43.06_ipjedf.jpg",
+      "https://res.cloudinary.com/tgvfx3bf/image/upload/v1789407906/WhatsApp_Image_2026-09-14_at_09.43.10_g3ipqh.jpg",
     ],
     image: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=600&h=400&fit=crop",
     hero: "https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=1920&h=800&fit=crop",
