@@ -20,6 +20,11 @@ const galleryItems = [
   { type: "image", src: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785852623/WhatsApp_Image_2026-08-03_at_07.16.00_vgza2k.jpg" },
   { type: "image", src: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785852622/WhatsApp_Image_2026-08-03_at_07.26.56_vd95ti.jpg" },
   { type: "image", src: "https://res.cloudinary.com/tgvfx3bf/image/upload/v1785852622/uk_yz8xmg.jpg" },
+  // ─── NEW videos (added) ───
+  { type: "video", src: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1792148574/WhatsApp_Video_2026-10-18_at_05.31.10_gaxuxu.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1792148573/WhatsApp_Video_2026-10-14_at_05.31.09_exzher.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1792148574/WhatsApp_Video_2026-10-14_at_05.61.10_vmgz3p.mp4" },
+  { type: "video", src: "https://res.cloudinary.com/tgvfx3bf/video/upload/v1792148573/WhatsApp_Video_2026-10-14_at_05.31.10_uzzcvn.mp4" },
 ];
 
 export default function GalleryPage() {
